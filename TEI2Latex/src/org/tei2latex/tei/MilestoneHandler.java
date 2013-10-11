@@ -41,6 +41,9 @@ public class MilestoneHandler extends TEIElementHandler {
 		latexDocument.write(lineSeparator);
 		
 		if (attributes.getValue("unit").equals("section")) {
+			
+			logger.debug("Section "+attributes.getValue("n"));
+			
 			if (!attributes.getValue("n").equals("1")) {
 				latexDocument.write("${}^{"+attributes.getValue("n")+"}$~");
 			}
@@ -48,12 +51,15 @@ public class MilestoneHandler extends TEIElementHandler {
 		else
 		if (attributes.getValue("unit").equals("chapter")) {
 			
+			logger.debug("Chapter "+attributes.getValue("n"));
+			
 			if (firstChapter) {
 				latexDocument.write("\\noindent \\textbf{"+attributes.getValue("n")+"} \\hspace{2mm}");
 				firstChapter = false;
 			}
 			else {
-				latexDocument.write("\\pend\\newpage\n");
+				//latexDocument.write("\\pend\\newpage\n");
+				latexDocument.write("\\pend\\vspace{5mm}\n");
 				latexDocument.write("\\pstart\\noindent \\textbf{"+attributes.getValue("n")+"} \\hspace{2mm}");
 			}			
 		}
