@@ -33,10 +33,11 @@ public class NoteHandler extends AbstractNoIgnoreHandler {
 	}
 	
 	@Override
-	public void start() {
+	public void start(String qn) {
+		super.start(qn);
 		
 		if (attributes.getValue("type") == null) {
-			logger.error("Element 'note' needs 'type' attribute!");
+			logger.error("!!! Element 'note' needs 'type' attribute!");
 			return;
 		}
 		

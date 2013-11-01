@@ -37,7 +37,9 @@ public class MilestoneHandler extends TEIElementHandler {
 	}
 	
 	@Override
-	public void start() {
+	public void start(String qn) {
+		super.start(qn);
+		
 		latexDocument.write(lineSeparator);
 		
 		if (attributes.getValue("unit").equals("section")) {

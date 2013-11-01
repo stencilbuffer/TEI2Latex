@@ -54,7 +54,11 @@ public class TEI2Latex {
 		TEIDocument doc = new TEIDocument("/home/gabriel/Dokumente/Dissertation/Supplement/Text/Buch1/Freinsheim1.Curt.xml");
 		doc.setTEIContentHandler(new TEIContentHandler(latexDoc));
 		doc.setElementHandler("milestone", new MilestoneHandler(latexDoc));
-		doc.setElementHandler("orig", new AbstractNoIgnoreHandler(latexDoc));
+		
+	  //doc.setElementHandler("orig", new AbstractNoIgnoreHandler(latexDoc));
+		doc.setElementHandler("reg", new AbstractNoIgnoreHandler(latexDoc));
+		
+		
 		doc.setElementHandler("emph", new EmphHandler(latexDoc));
 		doc.setElementHandler("note", new NoteHandler(latexDoc));
 		doc.setElementHandler("pb", new PbHandler(latexDoc));

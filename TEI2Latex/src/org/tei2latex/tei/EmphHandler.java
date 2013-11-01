@@ -33,7 +33,9 @@ public class EmphHandler extends AbstractNoIgnoreHandler {
 	}
 	
 	@Override
-	public void start() {
+	public void start(String qn) {
+		super.start(qn);
+		
 		document.write("\\emph{");
 	}
 	
